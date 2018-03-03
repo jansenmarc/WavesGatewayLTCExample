@@ -55,7 +55,7 @@ waves_chain = testnet
 # when using prod mode, file logging is enabled
 environment = debug
 ```
-This configuration file must be named `config.cf` and be placed in the root directory.
+This configuration file must be named `config.cfg` and be placed in the root directory.
 You have to replace the addresses with your own ones.
 
 The server can be started by calling: `python3.5 main.py`.
