@@ -1,3 +1,2 @@
 python-bitcoinrpc>=1.0
-flask>=0.12.2
-pymongo>=3.4.0
+waves-gateway>=1.0.0

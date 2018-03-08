@@ -12,9 +12,7 @@ Please run the following command to install them:
 ```bash
 pip3 install -r requirements.txt
 ```
-Currently, the Gateway-Framework must be installed manually be running `pip install .`
-in the cloned directory of the waves-gateway-package project.
-This will be changed soon.
+This will also install the framework.
 
 Developing requires additional packages to be installed:
 ```bash
