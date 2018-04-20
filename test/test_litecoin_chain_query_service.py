@@ -1,10 +1,9 @@
 import unittest
-from decimal import Decimal
 from unittest.mock import MagicMock
 
 from waves_gateway import Transaction, TransactionReceiver
 
-from waves_litecoin_gateway.lib import LitecoinChainQueryService
+from waves_litecoin_gateway import LitecoinChainQueryService
 
 
 class LitecoinChainQueryServiceTest(unittest.TestCase):

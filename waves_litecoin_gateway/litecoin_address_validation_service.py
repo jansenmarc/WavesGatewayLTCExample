@@ -4,8 +4,10 @@ LitecoinAddressValidationService
 
 import waves_gateway as wg
 from bitcoinrpc.authproxy import AuthServiceProxy
+from .token import AUTH_PROXY
 
 
+@wg.Injectable(provides=wg.COIN_ADDRESS_VALIDATION_SERVICE, deps=[AUTH_PROXY])
 class LitecoinAddressValidationService(wg.AddressValidationService):
     """
     Validates an Litecoin address by using an RPC service.

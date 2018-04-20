@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock
 
-from waves_litecoin_gateway.lib import LitecoinAddressFactory
+from waves_litecoin_gateway import LitecoinAddressFactory
 
 
 class LitecoinAddressFactoryTest(unittest.TestCase):

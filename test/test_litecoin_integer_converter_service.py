@@ -2,7 +2,7 @@ import unittest
 from decimal import Decimal
 from unittest.mock import MagicMock, patch
 
-from waves_litecoin_gateway.lib import LitecoinIntegerConverterService
+from waves_litecoin_gateway import LitecoinIntegerConverterService
 
 
 class LitecoinIntegerConverterServiceTest(unittest.TestCase):

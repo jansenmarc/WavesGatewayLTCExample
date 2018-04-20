@@ -6,8 +6,10 @@ from numbers import Number
 
 import waves_gateway as gw
 from decimal import Decimal
+from .token import LTC_FACTOR, LTC_ROUND_PRECISION
 
 
+@gw.Injectable(provides=gw.COIN_INTEGER_CONVERTER_SERVICE, deps=[LTC_FACTOR, LTC_ROUND_PRECISION])
 class LitecoinIntegerConverterService(gw.IntegerConverterService):
     """
     Implementation of an IntegerConverterService.

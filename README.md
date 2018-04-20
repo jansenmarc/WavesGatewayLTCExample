@@ -47,8 +47,15 @@ database = ltc-gateway
 host = localhost
 port = 5000
 
+[web]
+transaction_link = https://live.blockcypher.com/ltc/tx/{{tx}}
+address_link = https://live.blockcypher.com/ltc/tx/{{tx}}
+custom_currency_name = Litecoin
+
 [other]
 waves_chain = testnet
+waves_asset_id = ********************************************
+environment = debug
 
 # when using prod mode, file logging is enabled
 environment = debug
@@ -60,23 +67,21 @@ The server can be started by calling: `python3.5 main.py`.
 
 ## Unittests
 ```bash
-python3.5 -m nose waves_litecoin_gateway/test
+python3.5 -m nose waves_litecoin_gateway
 ```
 
 ## Coverage
 ```bash
-python3.5 -m nose waves_litecoin_gateway/test --with-coverage --cover-package waves_litecoin_gateway
+python3.5 -m nose waves_litecoin_gateway --with-coverage --cover-package waves_litecoin_gateway
 ```
 
 ## Linting
 ```bash
-python3.5 -m pylint main.py
 python3.5 -m pylint waves_litecoin_gateway
 ```
 
 ## MyPy
 ```bash
-python3.5 -m mypy main.py --ignore-missing-imports
 python3.5 -m mypy waves_litecoin_gateway --ignore-missing-imports
 ```
 

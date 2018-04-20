@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 from bitcoinrpc.authproxy import AuthServiceProxy
 from waves_gateway import TransactionAttempt, TransactionAttemptReceiver
 
-from waves_litecoin_gateway.lib import LitecoinTransactionService, LitecoinChainQueryService
+from waves_litecoin_gateway import LitecoinTransactionService, LitecoinChainQueryService
 
 
 class LitecoinTransactionServiceSpec(unittest.TestCase):
@@ -16,7 +16,7 @@ class LitecoinTransactionServiceSpec(unittest.TestCase):
         self._ltc_chain_query_service = MagicMock()
         self._transaction_service = LitecoinTransactionService(
             ltc_proxy=cast(AuthServiceProxy, self._ltc_proxy),
-            ltc_chain_query_service=cast(LitecoinChainQueryService, self._ltc_chain_query_service))
+            ltc_chain_query_service=cast(LitecoinChainQueryService, self._ltc_chain_query_service), min_optimized_amount=Decimal(0.0000001))
 
     def test_fast_optimize_unspents_no_result(self):
         unspents = list()

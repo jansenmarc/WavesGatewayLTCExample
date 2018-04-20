@@ -10,19 +10,20 @@ import gevent.lock as lock
 import waves_gateway as gw
 from bitcoinrpc.authproxy import AuthServiceProxy
 
+from .token import AUTH_PROXY, MIN_OPTIMIZED_AMOUNT
 from .litecoin_chain_query_service import LitecoinChainQueryService
 from .util import sum_unspents
 
 
+@gw.Injectable(
+    provides=gw.COIN_TRANSACTION_SERVICE, deps=[AUTH_PROXY, gw.COIN_CHAIN_QUERY_SERVICE, MIN_OPTIMIZED_AMOUNT])
 class LitecoinTransactionService(gw.TransactionService):
     """
     Implements the sending of an TransactionAttempt on the Litecoin Blockchain.
     """
 
-    def __init__(self,
-                 ltc_proxy: AuthServiceProxy,
-                 ltc_chain_query_service: LitecoinChainQueryService,
-                 min_optimized_amount: Decimal = Decimal(0.0000001)) -> None:
+    def __init__(self, ltc_proxy: AuthServiceProxy, ltc_chain_query_service: LitecoinChainQueryService,
+                 min_optimized_amount: Decimal) -> None:
         self._ltc_proxy = ltc_proxy
         self._min_optimized_amount = min_optimized_amount
         self._ltc_chain_query_service = ltc_chain_query_service

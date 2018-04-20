@@ -4,8 +4,10 @@ LitecoinAddressFactory
 
 import waves_gateway as gw
 from bitcoinrpc.authproxy import AuthServiceProxy
+from .token import AUTH_PROXY
 
 
+@gw.Injectable(deps=[AUTH_PROXY], provides=gw.CoinAddressFactory)
 class LitecoinAddressFactory(gw.CoinAddressFactory):
     """
     Implements an AddressFactory using the getnewaddress function provided by the Litecoin client.
@@ -15,5 +17,4 @@ class LitecoinAddressFactory(gw.CoinAddressFactory):
         self._access = ltc_proxy
 
     def create_address(self) -> gw.CoinAddress:
-
         return self._access.getnewaddress()
